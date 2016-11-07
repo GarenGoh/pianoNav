@@ -1,0 +1,114 @@
+<html>
+<head>
+    <meta http-equiv-="content-type" content="text/html;charset=utf-8">
+    <title>导航-钢琴音</title>
+    <style>
+
+        div {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .m1 {
+            background-color: red;
+        }
+
+        .m2 {
+            background-color: gray;
+        }
+
+        .m3 {
+            background-color: blue;
+        }
+
+        .m4 {
+            background-color: yellow;
+        }
+
+        .m5 {
+            background-color: #53ff77;
+        }
+
+        .m6 {
+            background-color: #f952ff;
+        }
+
+        .m7 {
+            background-color: #ffc434;
+        }
+
+        ul {
+            list-style: none;
+            overflow:hidden;
+            margin: auto;
+            width: 700px;
+        }
+
+        li {
+            float: left;
+            height: 100px;
+        }
+
+        a {
+            height: 0;
+            color: #aaa;
+            display: block;
+            width: 80px;
+            text-decoration: none;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>导航-钢琴音</h1>
+
+<h3>高音版</h3>
+<div>
+    <ul>
+        <li><a href="http://wqiang.net/" class="m1 a" msrc="note/h/1.mp3">首页</a></li>
+        <li><a href="http://wqiang.net/" class="m2 a" msrc="note/h/2.mp3">PHP</a></li>
+        <li><a href="http://wqiang.net/" class="m3 a" msrc="note/h/3.mp3">MySql</a></li>
+        <li><a href="http://wqiang.net/" class="m4 a" msrc="note/h/4.mp3">前端</a></li>
+        <li><a href="http://wqiang.net/" class="m5 a" msrc="note/h/5.mp3">标签</a></li>
+        <li><a href="http://wqiang.net/" class="m6 a" msrc="note/h/6.mp3">学无止境</a></li>
+        <li><a href="http://wqiang.net/" class="m7 a" msrc="note/h/7.mp3">关于我</a></li>
+    </ul>
+</div>
+
+<h3>钢琴音</h3>
+<div>
+    <ul>
+        <li><a href="http://wqiang.net/" class="m1 a" msrc="note/c/1.mp3">1</a></li>
+        <li><a href="http://wqiang.net/" class="m2 a" msrc="note/c/2.mp3">2</a></li>
+        <li><a href="http://wqiang.net/" class="m3 a" msrc="note/c/3.mp3">3</a></li>
+        <li><a href="http://wqiang.net/" class="m4 a" msrc="note/c/4.mp3">4</a></li>
+        <li><a href="http://wqiang.net/" class="m5 a" msrc="note/c/5.mp3">5</a></li>
+        <li><a href="http://wqiang.net/" class="m6 a" msrc="note/c/6.mp3">6</a></li>
+        <li><a href="http://wqiang.net/" class="m7 a" msrc="note/c/7.mp3">7</a></li>
+    </ul>
+</div>
+
+<script src="jquery-3.1.1.js"></script>
+<script>
+    $('li').mouseenter(function () {
+        $(this).children(".a").animate({
+            height: '200px'
+        },300);
+        var src= $(this).children(".a").attr('msrc');
+        var audio = new Audio();
+        audio.controls = false;
+        audio.src = src;
+        document.body.appendChild(audio);
+        audio.play();
+        setTimeout(function() {
+            audio.remove();
+        }, 2500);
+    }).mouseleave(function () {
+        $(this).children(".a").animate({
+            height: '0'
+        },300);
+
+    });
+</script>
+</body>
+</html>
